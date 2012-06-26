@@ -23,10 +23,10 @@
       //listen for mobileinit before loading jqm 
       //see: http://jquerymobile.com/test/docs/api/globalconfig.html
       $(document).bind("mobileinit", function(){
-        $.mobile.touchOverflowEnabled = true;
         $.mobile.defaultPageTransition = "slide";
         $.support.cors = true;
         $.mobile.allowCrossDomainPages = true;
+        $.mobile.pushStateEnabled = false;
       });
     
       //jquery - for working in browser
