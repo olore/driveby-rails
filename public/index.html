@@ -6,15 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta charset="utf-8">
 
-    <!-- iPad/iPhone specific css below, add after your main css >
-    <link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />    
-    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />    
-    -->
-
-    <!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
-
     <link rel="stylesheet" href="app/css/jquery.mobile-1.1.0.min.css" />
     <link rel="stylesheet" href="app/css/driveby.css" />
+    <link rel="stylesheet" href="app/css/iphone.css" />
+    <link rel="stylesheet" href="app/css/ipad.css" />
 
     <script type="text/javascript" charset="utf-8" src="app/js/libraries/cordova-1.8.1.js"></script>
     <script type="text/javascript" charset="utf-8" src="app/js/libraries/jquery-1.7.2.min.js"></script>
@@ -52,21 +47,22 @@
   </head>
 
   <body onload="onBodyLoad()">
-    <div data-role="page" id="index">
+    <div data-role="page" id="index" style="background: url(app/images/background.png) no-repeat center center fixed; -webkit-background-size: cover; ">
 
-      <div data-role="header" data-position="fixed">
-        <h1>Drive By</h1>
-      </div><!-- /header -->
+      <div style="text-align: center">
+        <img src="app/images/drive_by_title.png" />
+      </div>
 
       <div data-role="content">
         <div class="content-primary">
 
-          <a href="add.html">Add</a>
-          <br />
-          <br />
-          <br />
-          <br />
-          <a href="recent.html">Recent</a>
+          <div class="main_icons">
+            <a href="add.html"><img src="app/images/add_post_icon.png" /></a>
+            <a href="#"><img src="app/images/search_icon.png" /></a>
+            <br />
+            <a href="recent.html"><img src="app/images/recent_icon.png" /></a>
+            <a href="#"><img src="app/images/my_account_icon.png" /></a>
+          </div>
 
         </div><!-- /content-primary -->
       </div><!-- /content -->
@@ -96,7 +92,7 @@
       <li>
         <div class="recent_submission clearfix">
           <div style="float: right">
-            <img class="plate_image" height="60" width="120" src="app/images/{{toLowerCase post.state}}.jpg" />
+            <img class="plate_image" height="60" width="120" src="app/images/plates/{{toLowerCase post.state}}.jpg" />
 
             <p title="{{post.created_at}}" class="timeago">
               {{post.created_at}}

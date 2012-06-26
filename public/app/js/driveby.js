@@ -88,7 +88,7 @@
 console.log("add post page");
     /* add license plates to slider */
     $.each( DriveBy.states , function(index, state) {
-      $( '.slider' ).append('<div class="item" id ="' + state + '"><a href="#"><img class="lazy" width="120" height="60" data-original="app/images/' + state.toLowerCase() + '.jpg" /></a></div>');
+      $( '.slider' ).append('<div class="item" id ="' + state + '"><a href="#"><img class="lazy" width="120" height="60" data-original="app/images/plates/' + state.toLowerCase() + '.jpg" /></a></div>');
     });
 
 console.log("slider stuff done");
