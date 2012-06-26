@@ -1,0 +1,32 @@
+/* portrait */
+@media screen and (min-device-width: 481px) and (orientation:portrait) {
+
+  .main_icons {
+    padding-left: 100px; 
+    padding-top: 170px;
+  }
+
+  .main_icons img {
+    height: 240px;
+    width: 240px;
+    padding: 20px;
+  }
+
+}
+
+
+/* landscape */
+@media screen and (min-device-width: 481px) and (orientation:landscape) {
+
+  .main_icons {
+    padding-left: 240px; 
+    padding-top: 30px;
+  }
+
+  .main_icons img {
+    height: 240px;
+    width: 240px;
+    padding: 20px;
+  }
+
+}
