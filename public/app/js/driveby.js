@@ -140,9 +140,12 @@
   DriveBy.loadMainContent = function() {
     var main_icons   = $("#main_icons_template").html();
     var main_template = Handlebars.compile(main_icons);
-    var device = DriveBy.platform.split(" ")[0];
+    var device = "iPod";
+    if (DriveBy.platform) { //for browser
+      device = DriveBy.platform.split(" ")[0];
+    }
     if (device === "iPhone") {
-      device = "ipod";
+      device = "iPod";
     }
     DriveBy.images_path = "app/images/" + device;
     $('.content-primary').html(main_template({ device: device }));
