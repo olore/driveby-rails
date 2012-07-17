@@ -85,22 +85,17 @@
 
   DriveBy.add_post_page = function() {
 
-console.log("add post page");
     /* add license plates to slider */
     $.each( DriveBy.states , function(index, state) {
       $( '.slider' ).append('<div class="item" id ="' + state + '"><a href="#"><img class="lazy" width="120" height="60" data-original="app/images/plates/' + state.toLowerCase() + '.jpg" /></a></div>');
     });
 
-console.log("slider stuff done");
     $('.iosSlider').iosSlider({ desktopClickDrag: true,
                                 startAtSlide: 30 });
-
-console.log("lazy load start");
 
     $("img.lazy").lazyload({ container: $('.iosSlider'),
                              threshold: 600 });
 
-console.log("lazy load done");
     /* listen to clicking to states */
     //(function() {
       var states = $( '.item' );
@@ -142,16 +137,30 @@ console.log("lazy load done");
     DriveBy.update_recent_posts();
   };
 
+  DriveBy.loadMainContent = function() {
+    var main_icons   = $("#main_icons_template").html();
+    var main_template = Handlebars.compile(main_icons);
+    var device = DriveBy.platform.split(" ")[0];
+    if (device === "iPhone") {
+      device = "ipod";
+    }
+    $('.content-primary').html(main_template({ device: "iPod" }));
+  };
+
   DriveBy.initialize_phonegap = function() {
     console.log("intialize_phonegap");
-    DriveBy.uuid    = device.uuid;
-    DriveBy.device  = device.name;
-    DriveBy.version = device.version;
+    DriveBy.uuid      = window.device.uuid;
+    DriveBy.device    = window.device.name;
+    DriveBy.platform  = window.device.platform;
+    DriveBy.version   = window.device.version;
+
     DriveBy.initialize();
     Appirater.app_launched();
   };
 
   DriveBy.initialize = function() {
+    
+    DriveBy.loadMainContent();
 
     $('#recent').live('pageshow', function() {
       console.log('pageshow for recent');

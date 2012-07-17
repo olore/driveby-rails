@@ -56,14 +56,6 @@
       <div data-role="content">
         <div class="content-primary">
 
-          <div class="main_icons">
-            <a href="add.html"><img src="app/images/ipod/add_post_icon.png" /></a>
-            <a href="#"><img src="app/images/ipod/search_icon.png" /></a>
-            <br />
-            <a href="recent.html"><img src="app/images/ipod/recent_icon.png" /></a>
-            <a href="#"><img src="app/images/ipod/my_account_icon.png" /></a>
-          </div>
-
         </div><!-- /content-primary -->
       </div><!-- /content -->
 
@@ -77,7 +69,7 @@
 
 
     <script type="text/javascript" charset="utf-8" src="app/js/libraries/jquery.animate-enhanced.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="app/js/libraries/jquery.mobile-1.1.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="app/js/libraries/jquery.mobile-1.1.1.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="app/js/libraries/handlebars-1.0.0.beta.4.js"></script>
     <script type="text/javascript" charset="utf-8" src="app/js/libraries/jquery.timeago.js"></script>
     <script type="text/javascript" charset="utf-8" src="app/js/libraries/jquery.ios-slider-0.9.1.js"></script>
@@ -112,5 +104,16 @@
         </div>
       </li>
     </script>
+
+    <script id="main_icons_template" type="text/x-handlebars-template">
+          <div class="main_icons">
+            <a href="add.html"><img src="app/images/{{device}}/add_post_icon.png" /></a>
+            <a href="#"><img src="app/images/{{device}}/search_icon.png" /></a>
+            <br />
+            <a href="recent.html"><img src="app/images/{{device}}/recent_icon.png" /></a>
+            <a href="#"><img src="app/images/{{device}}/my_account_icon.png" /></a>
+          </div>
+    </script>
+
   </body>
 </html>
