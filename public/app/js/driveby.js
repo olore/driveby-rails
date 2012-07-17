@@ -144,7 +144,8 @@
     if (device === "iPhone") {
       device = "ipod";
     }
-    $('.content-primary').html(main_template({ device: "iPod" }));
+    DriveBy.images_path = "app/images/" + device;
+    $('.content-primary').html(main_template({ device: device }));
   };
 
   DriveBy.initialize_phonegap = function() {
@@ -158,9 +159,24 @@
     Appirater.app_launched();
   };
 
+  DriveBy.add_stuff = function(selector){
+    var button = selector.split("_link")[0];
+
+    $('#' + selector + ' img').live("vmousedown", function(e) {
+      $(this).attr("src", DriveBy.images_path + "/" + button + "_icon_selected.png");
+    });
+
+    $('#' + selector + ' img').live("vmouseup", function(e) {
+      $(this).attr("src", DriveBy.images_path + "/" + button + "_icon.png");
+    });
+  };
+
   DriveBy.initialize = function() {
     
     DriveBy.loadMainContent();
+
+    DriveBy.add_stuff('recent_link');
+    DriveBy.add_stuff('add_post_link');
 
     $('#recent').live('pageshow', function() {
       console.log('pageshow for recent');
