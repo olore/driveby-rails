@@ -8,8 +8,8 @@
 
     <link rel="stylesheet" href="app/css/jquery.mobile-1.1.1.min.css" />
     <link rel="stylesheet" href="app/css/driveby.css" />
-    <link rel="stylesheet" href="app/css/iphone.css" />
-    <link rel="stylesheet" href="app/css/ipad.css" />
+    <link rel="stylesheet" href="app/css/iPod.css" />
+    <link rel="stylesheet" href="app/css/iPad.css" />
 
     <script type="text/javascript" charset="utf-8" src="app/js/libraries/cordova-1.8.1.js"></script>
     <script type="text/javascript" charset="utf-8" src="app/js/libraries/jquery-1.7.2.min.js"></script>
@@ -47,7 +47,7 @@
   </head>
 
   <body onload="onBodyLoad()">
-    <div data-role="page" id="index" style="background: url(app/images/background.png) no-repeat center center fixed; -webkit-background-size: cover; ">
+    <div data-role="page" id="index" >
 
       <div style="text-align: center">
         <img src="app/images/drive_by_title.png" />
@@ -108,10 +108,10 @@
     <script id="main_icons_template" type="text/x-handlebars-template">
           <div class="main_icons">
             <a id="add_post_link" href="add.html"><img src="app/images/{{device}}/add_post_icon.png" /></a>
-            <a href="#"><img src="app/images/{{device}}/search_icon.png" /></a>
+            <a href="#"><img src="app/images/{{device}}/search_icon_disabled.png" /></a>
             <br />
             <a id="recent_link" href="recent.html"><img src="app/images/{{device}}/recent_icon.png" /></a>
-            <a href="#"><img src="app/images/{{device}}/my_account_icon.png" /></a>
+            <a href="#"><img src="app/images/{{device}}/my_account_icon_disabled.png" /></a>
           </div>
     </script>
 
