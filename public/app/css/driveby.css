@@ -62,6 +62,21 @@
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
 
+
+div.content-primary {
+}
+
+div[data-role=content] {
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+#title {
+  text-align: center;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
 /* recent submissions */
 .recent_submission .plate_image {
   -o-background-size:      120px 60px;

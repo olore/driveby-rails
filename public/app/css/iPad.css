@@ -7,11 +7,13 @@
   }
 
   .main_icons img {
-    height: 240px;
-    width: 240px;
     padding: 20px;
   }
 
+  div#index {
+    background: url(../images/iPad/background_vertical.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+  }
 }
 
 
@@ -24,9 +26,11 @@
   }
 
   .main_icons img {
-    height: 240px;
-    width: 240px;
     padding: 20px;
   }
 
+  div#index {
+    background: url(../images/iPad/background_horizontal.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+  }
 }

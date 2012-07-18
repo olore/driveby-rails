@@ -25,17 +25,12 @@
 @media screen and (max-device-width: 480px) and (orientation:landscape) {
 
   .main_icons {
-    padding-left: 140px; 
-    padding-top: 50px;
+    padding-left: 150px; 
+    padding-top: 0px;
+    margin-top: 0px;
   }
 
   .main_icons img {
-    margin: 0px;
-    margin-left: 0px;
-    padding-left: 0px;
-    padding-right: 3px;
-    padding-bottom: 5px;
-    padding-top: 10px;
   }
 
   div#index {
