@@ -124,10 +124,21 @@
         return;
       }
 
-      DriveBy.save_post( { state:          state, 
-                           license_plate:  plate, 
-                           comment:        comment, 
-                           creator:        creator });
+      var data = { state:          state, 
+                   license_plate:  plate, 
+                   comment:        comment, 
+                   creator:        creator };
+
+      if (DriveBy.location) {
+        $.extend( data, 
+          { geolocation: { lat:        DriveBy.location.latitude,
+                           lng:        DriveBy.location.longitude,
+                           accuracy:   DriveBy.location.accuracy,
+                           timestamp:  DriveBy.location_timestamp }
+          });
+      }
+
+      DriveBy.save_post( data );
 
     });                    
 
@@ -141,7 +152,7 @@
     var main_icons   = $("#main_icons_template").html();
     var main_template = Handlebars.compile(main_icons);
     var device = "iPod";
-    if (DriveBy.platform) { //for browser
+    if (DriveBy.platform) { //for testing in browser
       device = DriveBy.platform.split(" ")[0];
     }
     if (device === "iPhone") {
@@ -149,6 +160,33 @@
     }
     DriveBy.images_path = "app/images/" + device;
     $('.content-primary').html(main_template({ device: device }));
+  };
+
+  DriveBy.geolocation_error = function(error) {
+    switch(error.code)
+    {
+        case PositionError.PERMISSION_DENIED: 
+          console.log("User did not share geolocation data");
+        break;
+
+        case PositionError.POSITION_UNAVAILABLE: 
+          console.log("Could not detect current position");
+        break;
+
+        case PositionError.TIMEOUT:   
+          console.log("retrieving position timedout");
+        break;
+
+        default: 
+          console.log("unknown error: " + error.code + " (" + error.message + ")");
+        break;
+    }
+
+  };
+
+  DriveBy.geolocation_success = function(position) {
+    DriveBy.location = position.coords;
+    DriveBy.location_timestamp = position.timestamp;
   };
 
   DriveBy.initialize_phonegap = function() {
@@ -159,6 +197,9 @@
     DriveBy.version   = window.device.version;
 
     DriveBy.initialize();
+
+    navigator.geolocation.getCurrentPosition(DriveBy.geolocation_success, DriveBy.geolocation_error);
+
     Appirater.app_launched();
   };
 
