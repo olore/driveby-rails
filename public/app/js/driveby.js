@@ -27,32 +27,6 @@
     return new Handlebars.SafeString(value.toLowerCase());
   });
 
-  DriveBy.update_my_posts = function(func) {
-    var recent_list = $( '#my_recent_list' );
-    recent_list.empty();
-
-    $.get( DriveBy.host + "/posts/my/" + DriveBy.uuid, function( posts ) {
-
-      if (posts.length !== 0) {
-        $.each( posts , function(index, post) {
-          recent_list.append(DriveBy.post_template( {'post': post} ));
-        });
-
-        recent_list.listview('refresh'); /* apply the jqm style */
-        $(".timeago").timeago();
-        $(".comment").ellipsis();
-      } else {
-        var post = { state: 'CT', 
-                     license_plate: 'TOO BAD', 
-                     created_at: 'Never posted :(',   
-                     comment: 'You have not posted any license plates yet! What are you waiting for?' };
-        recent_list.append(DriveBy.post_template( {'post': post} ));
-        recent_list.listview('refresh'); /* apply the jqm style */
-      }
-
-      if (func) { func(); }
-    });
-  };
 
   DriveBy.update_recent_posts = function(func) {
     var recent_list = $( '#recent-list' );
@@ -233,16 +207,11 @@
     });
 
 
-    $('#my').live('pageshow', function (event, ui) {
-      DriveBy.update_my_posts();
-    });
-
-
     /* log any ajax errors */
-    $(document).ajaxError(function(e, jqxhr, settings, exception) {
+    $(document).ajaxError(function(ev, jqxhr, settings, exception) {
       $.mobile.hidePageLoadingMsg();
       DriveBy.show_retry_error_alert();
-      console.log( "AJAX error: " + e.message + "  ::  " + exception);
+      console.log( "AJAX error: " + exception.message + "  ::  " + exception);
     });
 
     /* listen to refresh click */
