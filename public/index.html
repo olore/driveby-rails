@@ -47,18 +47,8 @@
   </head>
 
   <body onload="onBodyLoad()">
+
     <div data-role="page" id="index" >
-
-      <div id="title">
-        <img src="app/images/drive_by_title.png" />
-      </div>
-
-      <div data-role="content">
-        <div class="content-primary">
-
-        </div><!-- /content-primary -->
-      </div><!-- /content -->
-
     </div><!-- /page -->
 
 
@@ -100,6 +90,14 @@
     </script>
 
     <script id="main_icons_template" type="text/x-handlebars-template">
+
+      <div id="title">
+        <img src="app/images/{{device}}/drive_by_title.png" />
+      </div>
+
+      <div data-role="content">
+        <div class="content-primary">
+
           <div class="main_icons">
             <a id="add_post_link" href="add.html"><img src="app/images/{{device}}/add_post_icon.png" /></a>
             <a href="#"><img src="app/images/{{device}}/search_icon_disabled.png" /></a>
@@ -107,6 +105,8 @@
             <a id="recent_link" href="recent.html"><img src="app/images/{{device}}/recent_icon.png" /></a>
             <a href="#"><img src="app/images/{{device}}/my_account_icon_disabled.png" /></a>
           </div>
+        </div><!-- /content-primary -->
+      </div><!-- /content -->
     </script>
 
   </body>

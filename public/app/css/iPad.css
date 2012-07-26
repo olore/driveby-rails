@@ -3,7 +3,7 @@
 
   .main_icons {
     padding-left: 100px; 
-    padding-top: 170px;
+    padding-top: 120px;
   }
 
   .main_icons img {
@@ -22,11 +22,12 @@
 
   .main_icons {
     padding-left: 240px; 
-    padding-top: 30px;
+    padding-top: 0px;
   }
 
   .main_icons img {
     padding: 20px;
+    padding-left: 10px;
   }
 
   div#index {

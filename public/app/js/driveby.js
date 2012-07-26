@@ -159,7 +159,7 @@
       device = "iPod";
     }
     DriveBy.images_path = "app/images/" + device;
-    $('.content-primary').html(main_template({ device: device }));
+    $('#index').html(main_template({ device: device }));
   };
 
   DriveBy.geolocation_error = function(error) {
