@@ -1,6 +1,14 @@
 Changes
 =======
 
+current
+-------
+- New user interface
+- Added geolocaion
+- Updated to cordova v2.0.0
+- Updated to jQueryMobile 1.1.1
+    - fixed slow page transition 
+
 v1.2
 ----
 - Added Appirater port for asking user to rate the app in iTunes
