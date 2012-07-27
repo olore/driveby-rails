@@ -61,7 +61,7 @@
 
     /* add license plates to slider */
     $.each( DriveBy.states , function(index, state) {
-      $( '.slider' ).append('<div class="item" id ="' + state + '"><a href="#"><img class="lazy" width="120" height="60" data-original="app/images/plates/' + state.toLowerCase() + '.jpg" /></a></div>');
+      $( '.slider' ).append('<div class="item" id ="' + state + '"><a href="#"><img class="lazy" width="120" height="60" data-original="images/plates/' + state.toLowerCase() + '.jpg" /></a></div>');
     });
 
     $('.iosSlider').iosSlider({ desktopClickDrag: true,
@@ -123,8 +123,6 @@
   };
 
   DriveBy.loadMainContent = function() {
-    var main_icons   = $("#main_icons_template").html();
-    var main_template = Handlebars.compile(main_icons);
     var device = "iPod";
     if (DriveBy.platform) { //for testing in browser
       device = DriveBy.platform.split(" ")[0];
@@ -133,6 +131,9 @@
       device = "iPod";
     }
     DriveBy.images_path = "app/images/" + device;
+
+    var main_icons   = $("#main_icons_template").html();
+    var main_template = Handlebars.compile(main_icons);
     $('#index').html(main_template({ device: device }));
   };
 
@@ -181,10 +182,13 @@
     var button = selector.split("_link")[0];
 
     $('.main_icons').on('vmousedown', '#' + selector + ' img', function(e) {
+      console.log($(this).attr('src'));
+      console.log(DriveBy.images_path + "/" + button + "_icon_selected.png");
       $(this).attr("src", DriveBy.images_path + "/" + button + "_icon_selected.png");
     });
 
     $('.main_icons').on('vmouseup', '#' + selector + ' img', function(e) {
+      console.log(DriveBy.images_path + "/" + button + "_icon.png");
       $(this).attr("src", DriveBy.images_path + "/" + button + "_icon.png");
     });
   };
