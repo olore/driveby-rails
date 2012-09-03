@@ -130,7 +130,7 @@
     if (device === "iPhone") {
       device = "iPod";
     }
-    DriveBy.images_path = "app/images/" + device;
+    DriveBy.images_path = "images/" + device;
 
     var main_icons   = $("#main_icons_template").html();
     var main_template = Handlebars.compile(main_icons);
