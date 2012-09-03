@@ -1,10 +1,10 @@
 Changes
 =======
 
-current
--------
+v2.0
+----
 - New user interface
-- Added geolocaion
+- Added geolocation (more coming soon!)
 - Updated to cordova v2.0.0
 - Updated to jQueryMobile 1.1.1
     - fixed slow page transition 
