@@ -4,7 +4,7 @@
   
   /* private */
   var APP_ID                  = '527034924';  //your app id 
-  var VERSION                 = '1.3';        //your app version # 
+  var VERSION                 = '2.0';        //your app version # 
   var DAYS_UNTIL_PROMPT       = 30;           //days 30
   var USES_UNTIL_PROMPT       = 15;           //count 15
   var SIG_EVENTS_UNTIL_PROMPT = -1;           //count
