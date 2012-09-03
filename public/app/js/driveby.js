@@ -165,7 +165,6 @@
   };
 
   DriveBy.initialize_phonegap = function() {
-    console.log("intialize_phonegap");
     DriveBy.uuid      = window.device.uuid;
     DriveBy.device    = window.device.name;
     DriveBy.platform  = window.device.platform;
@@ -182,13 +181,10 @@
     var button = selector.split("_link")[0];
 
     $('.main_icons').on('vmousedown', '#' + selector + ' img', function(e) {
-      console.log($(this).attr('src'));
-      console.log(DriveBy.images_path + "/" + button + "_icon_selected.png");
       $(this).attr("src", DriveBy.images_path + "/" + button + "_icon_selected.png");
     });
 
     $('.main_icons').on('vmouseup', '#' + selector + ' img', function(e) {
-      console.log(DriveBy.images_path + "/" + button + "_icon.png");
       $(this).attr("src", DriveBy.images_path + "/" + button + "_icon.png");
     });
   };
@@ -201,12 +197,10 @@
     DriveBy.add_stuff('add_post_link');
 
     $('body').on('pageshow', '#recent', function() {
-      console.log('pageshow for recent');
       DriveBy.recent_posts_page();
     });
 
     $('body').on('pageshow', '#add_post', function() {
-      console.log('pageshow for add_post');
       DriveBy.add_post_page();
     });
 
