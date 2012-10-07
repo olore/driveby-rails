@@ -1,6 +1,12 @@
 Changes
 =======
 
+Next
+----
+- Updated to cordova v2.1.0
+- Updated to jquery-mobile v1.2.0
+- Updated to jquery v1.8.2
+
 v2.0
 ----
 - New user interface
